@@ -1,9 +1,8 @@
 // components/ChatUI.tsx
 "use client";
 
-import { useState, useEffect } from "react"; // Added useEffect for localStorage
+import { useState } from "react"; // Added useEffect for localStorage
 import { v4 as uuidv4 } from "uuid";
-import IndustrySelector from "./IndustrySelector"; // Import the new component
 import ReactMarkdown from "react-markdown";
 
 interface Message {
@@ -15,7 +14,7 @@ export default function ChatUI() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [sessionId] = useState(uuidv4());
-  const [currentIndustry, setCurrentIndustry] = useState("portfolio"); // ✅ New state for industry
+   const currentIndustry = "resume"; 
   const [loading, setLoading] = useState(false); // Added loading state for better UX
 
   // Load messages from localStorage on initial mount
