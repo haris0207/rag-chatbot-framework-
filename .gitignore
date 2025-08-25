@@ -39,3 +39,26 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.next/
+out/
+.env.local
+.env.development.local
+.env.production.local
+.env.test.local
+
+# Node.js
+node_modules/
+# package-lock.json # Uncomment this line if you prefer to exclude package-lock.json
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# ChromaDB data
+.chroma/
+chroma_data/
+
+# Personal/Sensitive Data
+# Ignore all files within any subfolder of data/
+data/**/*
