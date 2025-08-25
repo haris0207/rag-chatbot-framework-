@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
           // ✅ IMPORTANT: Replace with your actual portfolio domain(s)
           // For local testing, you can add 'http://127.0.0.1:5500'
           // For Hostinger, you'll add your actual domain, e.g., 'https://your-portfolio-domain.com'
-          { key: "Access-Control-Allow-Origin", value: "http://127.0.0.1:5500" }, 
+          { key: "Access-Control-Allow-Origin", value: "https://mdhk.me" }, 
           // You can add multiple origins by changing value to a comma-separated list or an array if Next.js supports it directly
           // { key: "Access-Control-Allow-Origin", value: "https://your-portfolio-domain.com, http://127.0.0.1:5500" }, 
           
