@@ -3,9 +3,12 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-interface HistoryMessage {
-  role: "user" | "bot";
-  content: string;
+interface Document {
+  metadata?: {
+    text?: string;
+    [key: string]: unknown;
+  };
+  [key: string]: unknown;
 }
 export async function ragPipeline(
   industryName: string,
@@ -14,7 +17,7 @@ export async function ragPipeline(
   k = 3
 ) {
   // Step 1: retrieve relevant docs
-  const docs = await queryDocuments(industryName, query, k);
+const docs: (Document | string)[] = await queryDocuments(industryName, query, k);
 
   // Step 2: build conversation history
   const conversationHistory = history
@@ -23,7 +26,7 @@ export async function ragPipeline(
 
   // Step 3: build context from docs
   const context = docs
-    .map((d: any) => (typeof d === "string" ? d : d.metadata?.text ?? ""))
+    .map((d) => (typeof d === "string" ? d : d.metadata?.text ?? ""))
     .join("\n");
 
   if (!context.trim()) {

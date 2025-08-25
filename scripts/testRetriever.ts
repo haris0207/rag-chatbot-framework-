@@ -8,7 +8,7 @@ async function run() {
     { id: "3", text: "Gemini is a generativ    npm install --save-dev ts-node@latest typescript@lateste AI model by Google." },
   ]);
 
-  const results = await queryDocuments("What is Chroma?");
+  const results = await queryDocuments("portfolio","what is Chroma?",3);
   console.log("Query results:", results);
 }
 
